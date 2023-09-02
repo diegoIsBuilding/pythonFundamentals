@@ -1,3 +1,11 @@
+#import the random library
+import random
+
+
+
+
+
+
 #Variable
 #Created a variable called player_choice and 
 #assigned the string 'rock' to it
@@ -16,7 +24,8 @@ def get_choices():
     #Get an input by the user by using the 
     #input function --> input()
     player_choice = input('Enter a choice (rock, paper, scissors)')
-    computer_choice = 'paper'
+    options = ['rock', 'paper', 'scissors']
+    computer_choice = random.choice(options)
     choices = {
     'player': player_choice,
     'computer': computer_choice
@@ -52,3 +61,10 @@ print(choices)
 #    'player': player_choice,
 #    'computer': computer_choice
 #}
+
+#Lists
+#Lists are like arrays in javascript
+#Example: food = ['pizza', 'carrots', 'hamburgers', 'donuts']
+#use the 'random' library to get a food item from the 
+#food list
+#Example: snack = random.choice(food)
