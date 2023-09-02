@@ -15,8 +15,11 @@
 def get_choices():
     player_choice = 'rock'
     computer_choice = 'paper'
-
-    return computer_choice
+    choices = {
+    'player': player_choice,
+    'computer': computer_choice
+}
+    return choices
 
 #Example Function
 #def greeting():
@@ -37,3 +40,13 @@ def get_choices():
 
 choices = get_choices()
 print(choices)
+
+#Dictionaries
+#These are like objects in javascript 
+#Used to store data values in key:value pairs
+#They are changeable and do NOT allow duplicates
+#Example
+#choices = {
+#    'player': player_choice,
+#    'computer': computer_choice
+#}
