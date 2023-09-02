@@ -13,7 +13,9 @@
 
 #Define (def) a function named get_choices
 def get_choices():
-    player_choice = 'rock'
+    #Get an input by the user by using the 
+    #input function --> input()
+    player_choice = input('Enter a choice (rock, paper, scissors)')
     computer_choice = 'paper'
     choices = {
     'player': player_choice,
