@@ -34,7 +34,12 @@ def get_choices():
 #create a function to check the winner
 #pass in two pieces of information
 def check_win(player, computer):
-    return [player, computer]
+    #if statement will check if a statement is true
+    #in this case who is the winner
+    if player == computer:
+        return("It's a tie!")
+    
+    
 
 #Example Function
 #def greeting():
@@ -72,3 +77,9 @@ def check_win(player, computer):
 #use the 'random' library to get a food item from the 
 #food list
 #Example: snack = random.choice(food)
+
+#Example: If Statement 
+# a = 3
+# b = 5
+# if a < b:
+# print("Yes")
