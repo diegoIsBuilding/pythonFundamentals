@@ -31,6 +31,10 @@ def get_choices():
     'computer': computer_choice
 }
     return choices
+#create a function to check the winner
+#pass in two pieces of information
+def check_win(player, computer):
+    return [player, computer]
 
 #Example Function
 #def greeting():
@@ -49,8 +53,8 @@ def get_choices():
 #returns the string 'Hi'
 
 
-choices = get_choices()
-print(choices)
+#choices = get_choices()
+#print(choices)
 
 #Dictionaries
 #These are like objects in javascript 
