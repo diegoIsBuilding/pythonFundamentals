@@ -34,6 +34,8 @@ def get_choices():
 #create a function to check the winner
 #pass in two pieces of information
 def check_win(player, computer):
+    #Example Str Concat
+    print("You chose " + player + ", computer chose " + computer)
     #if statement will check if a statement is true
     #in this case who is the winner
     if player == computer:
