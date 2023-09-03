@@ -35,14 +35,14 @@ def get_choices():
 #pass in two pieces of information
 def check_win(player, computer):
     #Example Str Concat
-    print("You chose " + player + ", computer chose " + computer)
+    print(f"You chose {player} and the computer chose {computer}.")
     #if statement will check if a statement is true
     #in this case who is the winner
     if player == computer:
         return("It's a tie!")
     
     
-
+check_win("rock", "paper")
 #Example Function
 #def greeting():
     #return 'Hi'
@@ -85,3 +85,8 @@ def check_win(player, computer):
 # b = 5
 # if a < b:
 # print("Yes")
+
+#Example f-String
+#f strings make it easier to add python variables and expressions inside of strings
+#age = 25
+#print(f"Jum is {age} years old.")
