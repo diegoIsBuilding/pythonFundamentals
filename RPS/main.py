@@ -40,6 +40,12 @@ def check_win(player, computer):
     #in this case who is the winner
     if player == computer:
         return("It's a tie!")
+    # Create an elif statement to check alternative outcomes
+    elif player == 'rock' and computer == 'scissors':
+        return('Rock Smashes Scissors! You Win!')
+    elif player == 'rock' and computer == 'paper':
+        return('Paper beats rock! You Lose!')
+
     
     
 check_win("rock", "paper")
@@ -90,3 +96,22 @@ check_win("rock", "paper")
 #f strings make it easier to add python variables and expressions inside of strings
 #age = 25
 #print(f"Jum is {age} years old.")
+
+#Example of Else and Elif Statments
+#If/Else Statement
+# age = 20
+# if age >= 18:
+#   print('You are an adult')
+# else:
+#   print('You are not an adult)
+
+#Elif Statement
+# age = 20
+# if age >= 18:
+# print('You are an adult')
+# elif age > 12:
+#   print('You are a teenageer')
+# elif age > 1:
+#   print('You are a child')
+# else:
+#   print('You are a baby')
