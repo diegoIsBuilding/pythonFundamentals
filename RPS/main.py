@@ -45,8 +45,25 @@ def check_win(player, computer):
         return('Rock Smashes Scissors! You Win!')
     elif player == 'rock' and computer == 'paper':
         return('Paper beats rock! You Lose!')
-
     
+    # Refactor the if/elif/else statement above
+    elif player == 'rock':
+        if computer == 'scissors':
+            return('Rock Smashes Scissors! You Win')
+        else:
+            return('Paper covers Rock! You Lose!')
+    elif player == 'paper':
+        if computer == 'rock':
+            return('Paper covers Rock! You Win!')
+        else:
+            return('Scissors cuts paper! You Lose!')
+    elif player == 'scissors':
+        if computer == 'paper':
+            return('Scissor cuts paper! You Win!')
+        else:
+            return('Rock smashes Scissors! You Lose!')
+
+choices = get_choices()  
     
 check_win("rock", "paper")
 #Example Function
