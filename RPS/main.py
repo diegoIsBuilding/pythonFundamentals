@@ -1,11 +1,6 @@
 #import the random library
 import random
 
-
-
-
-
-
 #Variable
 #Created a variable called player_choice and 
 #assigned the string 'rock' to it
@@ -62,10 +57,14 @@ def check_win(player, computer):
             return('Scissor cuts paper! You Win!')
         else:
             return('Rock smashes Scissors! You Lose!')
+#The following variable is going to return a dictionary
+#How to access a specific element in a dictionary
 
-choices = get_choices()  
+choices = get_choices()
+result = check_win(choices['player'], choices['computer'])
+print(result)
     
-check_win("rock", "paper")
+#check_win("rock", "paper")
 #Example Function
 #def greeting():
     #return 'Hi'
@@ -132,3 +131,12 @@ check_win("rock", "paper")
 #   print('You are a child')
 # else:
 #   print('You are a baby')
+
+#Accessing a Specific Element in a Dictionary
+#Example
+#choices = {'player': 'rock', 'computer': 'paper'}
+
+#To choose a specific elemenet in a dictionary you must use the variable associated with the dictionary and use square brackets to access a key and then add the key you want in the square brackets
+#Example below
+
+#player_choice = choices['player']
