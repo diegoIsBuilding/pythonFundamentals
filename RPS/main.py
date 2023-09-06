@@ -136,7 +136,7 @@ print(result)
 #Example
 #choices = {'player': 'rock', 'computer': 'paper'}
 
-#To choose a specific elemenet in a dictionary you must use the variable associated with the dictionary and use square brackets to access a key and then add the key you want in the square brackets
+#You can access the items of a dictionary by referring to its key name inside of square brackets
 #Example below
 
 #player_choice = choices['player']
