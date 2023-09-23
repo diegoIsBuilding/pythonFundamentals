@@ -1,10 +1,17 @@
 #Step 1 - Create a variable of suits, rank, and value - Hearts, K, and 10
 #Then print the # values
+''' This module will be used later to shuffle the deck '''
 import random
+''' The class named Deck will represent a standard 52 card deck '''
 class Deck:
+    ''' The __init__() method initializes a deck of cards '''
     def __init__(self):
+        ''' A deck self.cards starts off as an empty list '''
         self.cards = []
+        ''' suits is a list of the 4 card suits '''
         suits = ['hearts', 'spades', 'diamonds', 'clubs']
+        ''' ranks is a list of dictionaries - each dictionary representing
+            a card rank and its associated value '''
         ranks = [
                 {'rank': 'A', 'value': 11},
                 {'rank': '2', 'value': 2},
@@ -20,21 +27,56 @@ class Deck:
                 {'rank': 'Q', 'value': 10},
                 {'rank': 'K', 'value': 10},
             ]
+        ''' below is a nested loop - the deck is created by combining each
+            each suit with each rank - making 52 cards'''
+        
+        ''' outer loop '''
+        ''' this loop iterates over each suit item in the suits string list'''
         for suit in suits:
-                for rank in ranks:
-                    self.cards.append([suit, rank])
-                
+            ''' inner loop '''
+            ''' for ever suit item in the outer loop - this inner loop
+                iterates over each rank dictionary item in the ranks list '''
+            for rank in ranks:
+                ''' inside the inner loop - combine each suit item and rank
+                    dictionary item - append this new list item to self.cards'''
+                self.cards.append([suit, rank])
+    
+    ''' The shuffle method randomizes the order of the cards in the self.cards deck '''
     def shuffle(self):
+        ''' Conditional Check: this line checks the number of cards in self.cards deck
+            by using the len() function - the shuffle operation will only happen 
+            if there is more than one card in the deck - this is logical because you can not
+            shuffle a deck with one or zero cards'''
         if len(self.cards) > 1:
+            ''' if the statement above is true - then the random.shuffle funciton is called
+            random is a python module - it randomizes the order of the items in a list'''
             random.shuffle(self.cards)
-            
+    
+    ''' This method is designed to 'deal' a certain number of cards from the self.cards deck
+        The number of cards dealt is determined by 'number argument - the cards are dealt from
+        the top/end of the deck'''        
     def dealCard(self, number):
-            cardsDelt = []
-            for x in range(number):
-                if len(self.cards) > 0:
-                    card = self.cards.pop()
-                    cardsDelt.append(card)
-            return cardsDelt
+        ''' Initialize an empty list - cardsDelt = [] '''
+        ''' The list will store the cards that are dealt - it is initally empty
+        because the are no cards to deal '''
+        cardsDelt = []
+        ''' the for loop runs as many times as the 'number' argument indicates
+            if the number is 2 it only deals two cards'''
+        for x in range(number):
+            ''' before dealing any cards the if statement checks it the 
+                deck has any cards to deal - the are no cards it cant deal '''
+            if len(self.cards) > 0:
+                ''' the pop() method removes the top card from the self.card list
+                    and returns it - this card is then store in the card variable 
+                    - the deals one card from the top of the deck'''
+                card = self.cards.pop()
+                ''' The dealt card in the previous step is then stored in the
+                    cardsDelt list - this keeps track of all the cards that have been 
+                    dealt '''
+                cardsDelt.append(card)
+                ''' once the loop is complete and the specified number of cards 
+                have been dealt the method then returns the 'cardsDelt' '''
+        return cardsDelt
 
 deckOne = Deck()
 deckTwo = Deck()
