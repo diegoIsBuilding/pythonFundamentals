@@ -2,6 +2,29 @@
 #Then print the # values
 ''' This module will be used later to shuffle the deck '''
 import random
+
+''' The 'Card' class represents indvidual playing cards with suits and ranks '''
+class Card:
+    ''' This constructor method is called when a 'Card' is created '''
+    ''' The method take three parameters - self, suit, and rank '''
+    ''' self - this refers to the instance of the object itself '''
+    ''' suit - this refers to the suit of the card '''
+    ''' rank - this refers to the rank of the card '''
+    def __init__(self, suit, rank):
+        ''' the self.suit and self.rank store the passed in values of suit and rank
+            in the instance of the object '''
+        self.suit = suit
+        self.rank = rank
+    ''' the __str__ method determines what should return when you try to 
+        convert the object to a string or when you try to print it '''
+    ''' the __str__ method will return a string representation of the card'''
+    def __str__(self):
+        ''' this fetches and returns the cards attributes
+            self.rank["rank"] fetches the rank of the card
+            self.suit directly fetches the suit of the card '''
+        return f'{self.rank["rank"]} of {self.suit}'
+        
+
 ''' The class named Deck will represent a standard 52 card deck '''
 class Deck:
     ''' The __init__() method initializes a deck of cards '''
@@ -39,7 +62,7 @@ class Deck:
             for rank in ranks:
                 ''' inside the inner loop - combine each suit item and rank
                     dictionary item - append this new list item to self.cards'''
-                self.cards.append([suit, rank])
+                self.cards.append(Card(suit, rank))
     
     ''' The shuffle method randomizes the order of the cards in the self.cards deck '''
     def shuffle(self):
@@ -78,11 +101,8 @@ class Deck:
                 have been dealt the method then returns the 'cardsDelt' '''
         return cardsDelt
 
-deckOne = Deck()
-deckTwo = Deck()
-deckTwo.shuffle()
-#print(deckOne.cards)
-print(deckTwo.cards)
+card1 = Card('hearts', {'rank': 'K', 'value': 10})
+print(card1)
 
 
 
