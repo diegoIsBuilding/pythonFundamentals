@@ -101,10 +101,73 @@ class Deck:
                 have been dealt the method then returns the 'cardsDelt' '''
         return cardsDelt
 
-card1 = Card('hearts', {'rank': 'K', 'value': 10})
-print(card1)
-
-
+''' This defines the class of 'Hand' '''
+class Hand:
+    ''' Initialize the constructor method '''
+    def __init__(self, dealer = False):
+        ''' self.cards keeps track of cards in hand '''
+        self.cards = []
+        ''' self.value sets the value of the hand to 0 '''
+        self.value = 0
+        ''' self.dealer checks if the hand is for a dealer or player
+            by default it is a players hand '''
+        self.dealer = dealer
+        
+        ''' The add_card method allows you to add one or more cards to the hand
+            It takes a lost of cards -> card_list and append them to self.cards '''
+    def add_card(self, card_list):
+        self.cards.extend(card_list)
+        ''' The calculate_value method calculates the value of the hand based on
+            on the cards it has - it starts by setting self.value to zero 
+            and checking if there are any aces in the hand '''
+    def calculate_value(self):
+        self.value = 0
+        has_ace = False
+        ''' Goes through each card to get its value '''
+        for card in self.cards:
+            card_value = int(card.rank['value'])
+            self.value += card_value
+            ''' This method then checks if there is an Ace in the hand '''
+            if card.rank['rank'] == 'A':
+                has_ace = True
+        ''' Then checks if the value of the hand is over 21 and has and Ace
+            if it has and ace and value over 21 it then subtracts 10 '''
+        if has_ace and self.value > 21:
+            self.value -= 10
+    
+    ''' This method recalculates the value of the hand ''' 
+    def get_value(self):
+        self.calculate_value()
+        return self.value
+    ''' The method checks if the hand is a blackjack (a value of 21) 
+        and returns True or False depending on the value '''
+    def is_blackjack(self):
+        return self.get_value() == 21
+    ''' This method displays the hands cards and its value '''
+    def display(self, show_all_dealer_cards=False):
+        ''' If it is the dealers hand it shows the dealers hand '''
+        if self.dealer == True:
+            print('Dealers Hand: ')
+        else: 
+            ''' Otherwise it shows the players hand '''
+            print('Your Hand: ') 
+        ''' The dealers first card is hidden '''
+        for index, card in enumerate(self.cards):
+            if index == 0 and self.dealer and not show_all_dealer_cards and not self.is_blackjack:
+                print('Hidden')
+            else:
+                ''' Unless the dealer has a blackjack or the game ends the first card is shown '''
+                print(card)
+        if not self.dealer:
+            print('Value: ', self.get_value())
+        print()
+            
+            
+deck = Deck()
+deck.shuffle()
+hand = Hand()
+hand.add_card(deck.dealCard(2))
+hand.display() 
 
 ###########
 ###########
@@ -127,6 +190,7 @@ rank_dictionary = {
     'rank': rank, 
     'value': value
 }'''
+
 
 
 
