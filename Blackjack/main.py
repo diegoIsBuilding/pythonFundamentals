@@ -183,8 +183,8 @@ class Game():
             dealer_hand = Hand(dealer=True)
             
             for i in range(2):
-                player_hand.add_card(deck.deal(1))
-                dealer_hand.add_card(deck.deal(1))
+                player_hand.add_card(deck.dealCard(1))
+                dealer_hand.add_card(deck.dealCard(1))
             
             print()
             print('*' * 30)
@@ -193,18 +193,18 @@ class Game():
             player_hand.display()
             dealer_hand.display()
             
-            if self.check_winner(self.player_hand, dealer_hand):
+            if self.check_winner(player_hand, dealer_hand):
                 continue
             
             choice = ''
-            while self.player_hand.get_value() < 21 and choice not in ['s', 'stand']:
+            while player_hand.get_value() < 21 and choice not in ['s', 'stand']:
                 choice = input('Hit or Stand: ').lower()
                 print()
                 while choice not in ['h', 's', 'hit', 'stand']:
                     choice = input('Enter H/S or Hit/Stand').lower()
                     print()
                 if choice in ['h', 'hit']:
-                    self.player_hand.add_card(deck.deal())
+                    player_hand.add_card(deck.dealCard(1))
                     player_hand.display()
                     
             if self.check_winner(player_hand, dealer_hand):
@@ -214,8 +214,8 @@ class Game():
             dealer_hand_value = dealer_hand.get_value()
         
             while dealer_hand_value < 17:
-                dealer_hand.add_card(deck.deal())
-                dealer_hand_value = dealer_hand_value.get_value()
+                dealer_hand.add_card(deck.dealCard(1))
+                dealer_hand_value = dealer_hand.get_value()
             
             dealer_hand.display(show_all_dealer_cards=True)
             
@@ -238,7 +238,7 @@ class Game():
             elif dealer_hand.get_value() > 21:
                 print('Dealer Bust! You Win!')
                 return True
-            elif player_hand.is_blackjack() == dealer_hand.is_blackjack():
+            elif player_hand.is_blackjack() and dealer_hand.is_blackjack():
                 print('Theres a tie!')
                 return True
             elif player_hand.is_blackjack():
